@@ -37,19 +37,25 @@ const handleRequest = function(req, res) {
   }
 
   // TODO: GET ONE
-  if ((req.url == '/quote/' || req.url == '/quote') && req.method == "get") {
-    
-
+  if ((req.url == '/quote/' || req.url == '/quote') && req.method == "GET") {
+    res.writeHead(200, headers);
+    res.write(quotes[getRandomInt(0, quotes.length)]);
+    res.end();
   }
+
   // TODO: POST/CREATE
-  else if ((req.url == 'FILL ME IN' || req.url == 'FILL ME IN') && req.method == "post") {
-    res.writeHead(301, headers);
-    res.end()
+  else if ((req.url == '/quote/' || req.url == '/quote') && req.method == "POST") {
+    res.writeHead(200, headers);
+    req.on('data', (chunk) => {
+      quotes.push(chunk);
+      console.log(quotes);
+    });
+    res.end();
   }
 
 //CATCH ALL ROUTE
   else {
-    res.writeHead(404,headers);
+    res.writeHead(404, headers);
     res.end('Page not found');
 
   }

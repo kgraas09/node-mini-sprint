@@ -15,13 +15,16 @@ $(document).ready(function() {
     .then((data) => {
       console.log(data);
       $("#response").append(data);
-    });
-  }
+      });
+    };
+
 
   function addQuote(quote) {
-    $.post('http://localhost:3000', quote)
+    $.post('http://localhost:3000/quote/', quote)
     .then((data) => {
       console.log(data);
+      $('#response').text('Your submission has been recorded! ' + quote);
+      $("#response").append(data);
     })
   }
 });
