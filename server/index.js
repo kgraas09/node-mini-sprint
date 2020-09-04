@@ -12,11 +12,11 @@ const port = 3000;
 
 // TODO: Fill with strings of your favorite quotes :)
 const quotes = [
-  'one',
-  'two',
-  'three',
-  'four',
-  'five'
+  '"I am your father." - Darth Vader',
+  '"Fortune favors the bold." - Fortis Fortuna Adiuvat',
+  '"Chelloooo... you got a bass!" - Jack Black',
+  '"This is the way." - The Mandalorian',
+  '"By order of the Peaky f***in Blinders!" - Arthur Shelby'
 ];
 
 //Utility Function to return a random integer
@@ -37,13 +37,14 @@ const handleRequest = function(req, res) {
   }
 
   // TODO: GET ONE
-  if ((req.url == '/quote/' || req.url == '/quote') && req.method == "FILL ME IN") {
-    //YOUR CODE HERE
+  if ((req.url == '/quote/' || req.url == '/quote') && req.method == "get") {
+    
 
   }
   // TODO: POST/CREATE
-  else if ((req.url == 'FILL ME IN' || req.url == 'FILL ME IN') && req.method == "FILL ME IN") {
-    //YOUR CODE HERE
+  else if ((req.url == 'FILL ME IN' || req.url == 'FILL ME IN') && req.method == "post") {
+    res.writeHead(301, headers);
+    res.end()
   }
 
 //CATCH ALL ROUTE
